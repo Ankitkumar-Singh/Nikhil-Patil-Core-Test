@@ -9,7 +9,7 @@ namespace BookManagementFinalTest.Models
 
         [Required(ErrorMessage = "Please enter book name")]
         [MinLength(2, ErrorMessage = "Minimum length should be 2")]
-        [MaxLength(50, ErrorMessage = "Maximum length should be 50")]
+        [MaxLength(20, ErrorMessage = "Maximum length should be 20")]
         [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Name includes only alphabets")]
         public string Name { get; set; }
 

@@ -58,8 +58,14 @@ namespace BookManagementFinalTest.Controllers
             var book = _bookRepository.GetBook(id);
             ViewBag.AuthorId = _bookRepository.GetAuthors();
 
-            if (book == null)
+            if (id == 0)
                 book = new Book();
+
+            if (book == null)
+            {
+                Response.StatusCode = 404;
+                return View("BookNotFound", id);
+            }
 
             return View(book);
         }

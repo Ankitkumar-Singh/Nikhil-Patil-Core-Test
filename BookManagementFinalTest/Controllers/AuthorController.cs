@@ -53,8 +53,14 @@ namespace BookManagementFinalTest.Controllers
         {
             var author = _AuthorRepository.GetAuthor(id);
 
-            if (author == null)
+            if (id == 0)
                 author = new Author();
+
+            if (author == null)
+            {
+                Response.StatusCode = 404;
+                return View("AuthorNotFound", id);
+            }
 
             return View(author);
         }
