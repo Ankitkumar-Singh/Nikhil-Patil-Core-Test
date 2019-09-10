@@ -1,0 +1,56 @@
+﻿@model BookManagementFinalTest.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="col-md-8 offset-md-2 mt-5">
+    <div class="shadow">
+        <div class="card-body">
+            <h3 class="text-capitalize text-primary text-center my-4">@Model.Name</h3>
+            <dl class="row">
+
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">
+                    @if (Model.Price == 0)
+                    {
+                        <text>Free</text>
+                    }
+                    else
+                    {
+                        <i class="fa fa-rupee"></i> @Model.Price
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Description</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.Description</dd>
+
+                <dt class="col-sm-3">Number of pages</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.NumOfPages</dd>
+
+                <dt class="col-sm-3">Language</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.Language</dd>
+
+                <dt class="col-sm-3">Category</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.Category</dd>
+
+                <dt class="col-sm-3">Author</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8 text-capitalize">@Model.Author.Firstname @Model.Author.Lastname</dd>
+
+                <dt class="col-sm-3">Date added</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.RegisterDate</dd>
+            </dl>
+            <div>
+                <a asp-action="Index" class="btn btn-info">Back</a>
+                <a asp-action="Save" asp-route-id="@Model.Id" class="btn btn-primary float-right">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>

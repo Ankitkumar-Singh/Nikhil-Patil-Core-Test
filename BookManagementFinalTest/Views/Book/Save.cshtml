@@ -1,0 +1,71 @@
+﻿@model BookManagementFinalTest.Models.Book
+
+@{
+    ViewData["Title"] = "Add book";
+}
+
+<div class="col-md-12 mt-5">
+    <div class="text-center">
+        <h3>BOOK DETAILS</h3>
+        <hr />
+    </div>
+    <div class="card-body">
+        <form asp-action="Save" method="post" id="bookForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-sm-6 form-group ">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" maxlength="50" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" maxlength="200"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label asp-for="AuthorId" class="control-label"></label>
+                    <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId">
+                        <option selected="selected" disabled>Select author...</option>
+                    </select>
+                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label asp-for="NumOfPages" class="control-label"></label>
+                    <input asp-for="NumOfPages" class="form-control" min="0" maxlength="10" />
+                    <span asp-validation-for="NumOfPages" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label asp-for="Language" class="control-label"></label>
+                    <div class="form-control">
+                        <label><input asp-for="Language" value="English" type="radio" />English</label>
+                        <label><input asp-for="Language" value="Non-English" type="radio" />Non-English</label>
+                    </div>
+                    <span asp-validation-for="Language" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label asp-for="Category" class="control-label"></label>
+                    <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()" class="form-control">
+                        <option selected="selected" disabled>Select category...</option>
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" type="number" class="form-control" min="0" maxlength="10" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-info">Cancel</a>
+                <input type="submit" value="Save" class="btn btn-success float-right" />
+            </div>
+        </form>
+    </div>
+</div>

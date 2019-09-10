@@ -1,0 +1,30 @@
+﻿@model BookManagementFinalTest.Models.Author
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="shadow">
+        <div class="card-body">
+            <h3 class="text-capitalize text-center text-primary my-4">@Model.Firstname @Model.Lastname</h3>
+            <dl class="row">
+                <dt class="col-sm-4">Email</dt>
+                <dt class="col-sm-1">:</dt>
+                <dd class="col-sm-7">@Model.Email</dd>
+
+                <dt class="col-sm-4">Contact</dt>
+                <dt class="col-sm-1">:</dt>
+                <dd class="col-sm-7">@Model.Contact</dd>
+
+                <dt class="col-sm-4">Date added</dt>
+                <dt class="col-sm-1">:</dt>
+                <dd class="col-sm-7">@Model.RegisterDate</dd>
+            </dl>
+            <div>
+                <a asp-action="Save" asp-route-id="@Model.Id" class="btn btn-primary float-right">Edit</a>
+                <a asp-action="Index" class="btn btn-info">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

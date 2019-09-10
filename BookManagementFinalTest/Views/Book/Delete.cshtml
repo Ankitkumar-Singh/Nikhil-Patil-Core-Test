@@ -1,0 +1,61 @@
+﻿@model BookManagementFinalTest.Models.Book
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="col-sm-8 offset-sm-2 mt-5">
+    <div class="shadow">
+        <div class="text-center text-danger mt-2">
+            <h4>Are you sure you want to delete @Model.Name?</h4>
+        </div>
+        <div class="card-body">
+            <h4 class="text-capitalize text-primary text-center my-3">@Model.Name</h4>
+            <dl class="row">
+
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">
+                    @if (Model.Price == 0)
+                    {
+                        <text>Free</text>
+                    }
+                    else
+                    {
+                        <i class="fa fa-rupee"></i> @Model.Price
+                    }
+                </dd>
+
+                <dt class="col-sm-3">Description</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.Description</dd>
+
+                <dt class="col-sm-3">Number of pages</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.NumOfPages</dd>
+
+                <dt class="col-sm-3">Language</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.Language</dd>
+
+                <dt class="col-sm-3">Category</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.Category</dd>
+
+                <dt class="col-sm-3">Author</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8 text-capitalize">@Model.Author.Firstname @Model.Author.Lastname</dd>
+
+                <dt class="col-sm-3">Date added</dt>
+                <dd class="col-sm-1">:</dd>
+                <dd class="col-sm-8">@Model.RegisterDate</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <a asp-action="Index" class="btn btn-info">Cancel</a>
+                <input type="submit" value="Delete" class="btn btn-danger float-right" id="btnDeleteBook" />
+            </form>
+        </div>
+    </div>
+</div>

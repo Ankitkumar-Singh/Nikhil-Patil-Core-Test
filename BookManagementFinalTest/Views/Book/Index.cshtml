@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BookManagementFinalTest.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    @if (Model.Count() == 0)
+    {
+        <div class="container-fluid mt-0">
+            <img src="~/images/index.jpg" asp-append-version="true" class="img-fluid" />
+            <h3 class="text-center">No books found... Please try after some time</h3>
+        </div>
+    }
+    else
+    {
+        <div class="mt-4">
+            @foreach (var item in Model)
+            {
+                <div class="card book-card shadow">
+                    <div class="card-img-top">
+                        <img src="~/images/book.png" asp-append-version="true" class="img-fluid" />
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dd class="col-sm-12 text-capitalize text-info"><h3>@item.Name</h3></dd>
+
+                            <dt class="col-sm-5">Category</dt>
+                            <dd class="col-sm-7">@item.Category</dd>
+
+                            <dt class="col-sm-5">Language</dt>
+                            <dd class="col-sm-7">@item.Language</dd>
+
+                            <dt class="col-sm-5">Author</dt>
+                            <dd class="col-sm-7 text-capitalize">@item.Author.Firstname @item.Author.Lastname</dd>
+                        </dl>
+                        <div class="float-right">
+                            <a asp-action="Save" asp-route-id="@item.Id"><i class="text-primary fa fa-pencil-square-o fa-2x mr-1"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.Id"><i class="text-info fa fa-info-circle fa-2x mr-1"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="text-danger fa fa-minus-circle fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
