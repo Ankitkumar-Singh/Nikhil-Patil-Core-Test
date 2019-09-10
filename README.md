@@ -1,6 +1,6 @@
 # Nikhil-Patil-Core-Test
 
-## Complete test by cosidering following points as mandatory:
+### Complete test by cosidering following points as mandatory:
 
 * Perform CRUD operations on each table listed below
 * Use ASP.Net Core MVC architecture with proper file and folder structure and EF Core
