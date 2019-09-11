@@ -1,4 +1,4 @@
-# Nikhil-Patil-Core-Test
+# Nikhil Patil Core Test
 
 ### Complete test by considering following points as mandatory:
 
